@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E41A38912CF3C4D200089CC9 /* StepTrekker Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E41A38902CF3C4D200089CC9 /* StepTrekker Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E41A38C72CF3C72A00089CC9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E41A38C62CF3C72A00089CC9 /* LICENSE */; };
+		E41A38C82CF3C72A00089CC9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E41A38C62CF3C72A00089CC9 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		E41A38902CF3C4D200089CC9 /* StepTrekker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StepTrekker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41A38A22CF3C4D400089CC9 /* StepTrekker Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StepTrekker Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41A38AC2CF3C4D400089CC9 /* StepTrekker Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StepTrekker Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E41A38C62CF3C72A00089CC9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -101,6 +104,7 @@
 		E41A38832CF3C4D200089CC9 = {
 			isa = PBXGroup;
 			children = (
+				E41A38C62CF3C72A00089CC9 /* LICENSE */,
 				E41A38942CF3C4D200089CC9 /* StepTrekker Watch App */,
 				E41A38A52CF3C4D400089CC9 /* StepTrekker Watch AppTests */,
 				E41A38AF2CF3C4D400089CC9 /* StepTrekker Watch AppUITests */,
@@ -262,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41A38C82CF3C72A00089CC9 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41A38C72CF3C72A00089CC9 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "StepTrekker Watch App/StepTrekker Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StepTrekker Watch App/Preview Content\"";
@@ -480,6 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "StepTrekker Watch App/StepTrekker Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StepTrekker Watch App/Preview Content\"";
