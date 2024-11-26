@@ -7,18 +7,23 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    @State var nickName: String
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextField("Nickname", text: $nickName)
+            Spacer()
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(nickName: "something")
 }
