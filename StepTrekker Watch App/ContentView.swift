@@ -10,14 +10,14 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var nickName: String = UserDefaults.standard.string(forKey: "nickName") ?? ""
+    @AppStorage("nickName") private var nickName: String = ""
     @State private var editing = false
+    
+    
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+            Text(Date.now, style: .date)
             Spacer()
             if (nickName.isEmpty || editing) {
                 TextField("Nickname", text: $nickName)
@@ -36,6 +36,7 @@ struct ContentView: View {
                             .imageScale(.large)
                             .foregroundStyle(.tint)
                     }
+                    .frame(width: 50.0)
                 }
             }
             Spacer()
@@ -45,5 +46,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(nickName: "something")
+    ContentView()
 }

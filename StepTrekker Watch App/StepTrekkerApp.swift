@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct StepTrekker_Watch_AppApp: App {
     var body: some Scene {
+        
         WindowGroup {
-            ContentView(nickName: "")
+            ContentView()
         }
     }
 }
