@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
-
+import HealthKit
 
 
 struct ContentView: View {
     @AppStorage("nickName") private var nickName: String = ""
     @State private var editing = false
+    @State private var numOfSteps = "0"
+    @State var isAuthorized = false
     
+    private var healthStore = HKHealthStore()
+    private var healthKitManager = HealthKitManager()
     
     
     var body: some View {
@@ -22,7 +26,7 @@ struct ContentView: View {
             if (nickName.isEmpty || editing) {
                 TextField("Nickname", text: $nickName)
                     .onSubmit {
-                        UserDefaults.standard.set(nickName, forKey: "nickName")
+                        print("Submitted!!")
                         editing = false
                     }
             } else {
@@ -40,8 +44,54 @@ struct ContentView: View {
                 }
             }
             Spacer()
+            Text(verbatim: numOfSteps)
         }
         .padding()
+        .onAppear {
+            changeAuthorizationStatus()
+            healthKitManager.readStepCount(forToday: Date(), healthStore: healthStore) { step in
+                if step != 0.0 {
+                    DispatchQueue.main.async {
+                        self.numOfSteps = String(format: "%.0f", step)
+                    }
+                }
+            }
+        }
+    }
+    
+    func healthRequest() {
+        healthKitManager.setUpHealthRequest(healthStore: healthStore) {
+            self.changeAuthorizationStatus()
+            self.readStepsTakenToday()
+        }
+    }
+    
+    func changeAuthorizationStatus() {
+        guard let stepQtyType = HKObjectType.quantityType(forIdentifier: .stepCount) else { return }
+        let status = self.healthStore.authorizationStatus(for: stepQtyType)
+        
+        switch status {
+        case .notDetermined:
+            isAuthorized = false
+        case .sharingDenied:
+            isAuthorized = false
+        case .sharingAuthorized:
+            DispatchQueue.main.async {
+                self.isAuthorized = true
+            }
+        @unknown default:
+            isAuthorized = false
+        }
+    }
+    
+    func readStepsTakenToday() {
+        healthKitManager.readStepCount(forToday: Date(), healthStore: healthStore) { step in
+            if step != 0.0 {
+                DispatchQueue.main.async {
+                    self.numOfSteps = String(format: "%.0f", step)
+                }
+            }
+        }
     }
 }
 
