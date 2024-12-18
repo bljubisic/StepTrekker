@@ -44,7 +44,12 @@ struct ContentView: View {
                 }
             }
             Spacer()
-            Text(verbatim: numOfSteps)
+            Button {
+                healthRequest()
+            } label: {
+                Text(verbatim: numOfSteps)
+            }
+            
         }
         .padding()
         .onAppear {
@@ -53,6 +58,7 @@ struct ContentView: View {
                 if step != 0.0 {
                     DispatchQueue.main.async {
                         self.numOfSteps = String(format: "%.0f", step)
+                        print(step)
                     }
                 }
             }
